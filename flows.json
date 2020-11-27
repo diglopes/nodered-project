@@ -2,7 +2,21 @@
     {
         "id": "f6f2187d.f17ca8",
         "type": "tab",
-        "label": "Flow 1",
+        "label": "Routes",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "c049fab0.927ee8",
+        "type": "tab",
+        "label": "Hello Controller",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "b4ea226.850fee",
+        "type": "tab",
+        "label": "Test Controller",
         "disabled": false,
         "info": ""
     },
@@ -21,25 +35,110 @@
         "method": "get",
         "upload": false,
         "swaggerDoc": "",
-        "x": 150,
+        "x": 160,
         "y": 120,
         "wires": [
             [
-                "395cfc6b.acdd44"
+                "d60764c0.cd50e8"
             ]
         ]
     },
     {
-        "id": "395cfc6b.acdd44",
-        "type": "change",
+        "id": "3cfed194.70871e",
+        "type": "http in",
         "z": "f6f2187d.f17ca8",
+        "name": "",
+        "url": "/test",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 160,
+        "y": 200,
+        "wires": [
+            [
+                "44daa3dd.44a61c",
+                "4355be5c.465c7"
+            ]
+        ]
+    },
+    {
+        "id": "44daa3dd.44a61c",
+        "type": "link out",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "links": [
+            "a11c591a.6bf7e8"
+        ],
+        "x": 315,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "d60764c0.cd50e8",
+        "type": "link out",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "links": [
+            "3bf2762f.5e64ea"
+        ],
+        "x": 315,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "3bf2762f.5e64ea",
+        "type": "link in",
+        "z": "c049fab0.927ee8",
+        "name": "Hello Controller",
+        "links": [
+            "d60764c0.cd50e8"
+        ],
+        "x": 105,
+        "y": 100,
+        "wires": [
+            [
+                "812acb3c.a6c358"
+            ]
+        ]
+    },
+    {
+        "id": "a11c591a.6bf7e8",
+        "type": "link in",
+        "z": "b4ea226.850fee",
+        "name": "Test Controller",
+        "links": [
+            "44daa3dd.44a61c"
+        ],
+        "x": 195,
+        "y": 80,
+        "wires": [
+            [
+                "2ac5ae68.c8cbe2"
+            ]
+        ]
+    },
+    {
+        "id": "8d95a1bb.007a8",
+        "type": "http response",
+        "z": "c049fab0.927ee8",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 450,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "812acb3c.a6c358",
+        "type": "change",
+        "z": "c049fab0.927ee8",
         "name": "",
         "rules": [
             {
                 "t": "set",
                 "p": "payload",
                 "pt": "msg",
-                "to": "{\"ok\": true}",
+                "to": "{\"hello\": \"world\"}",
                 "tot": "json"
             }
         ],
@@ -48,23 +147,62 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 420,
-        "y": 120,
+        "x": 260,
+        "y": 240,
         "wires": [
             [
-                "42f160df.49917"
+                "8d95a1bb.007a8"
             ]
         ]
     },
     {
-        "id": "42f160df.49917",
+        "id": "a3522fd2.83973",
         "type": "http response",
-        "z": "f6f2187d.f17ca8",
+        "z": "b4ea226.850fee",
         "name": "",
         "statusCode": "",
         "headers": {},
-        "x": 690,
-        "y": 120,
+        "x": 467,
+        "y": 172,
         "wires": []
+    },
+    {
+        "id": "2ac5ae68.c8cbe2",
+        "type": "change",
+        "z": "b4ea226.850fee",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"test\": \"ok\"}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 307,
+        "y": 172,
+        "wires": [
+            [
+                "a3522fd2.83973"
+            ]
+        ]
+    },
+    {
+        "id": "4355be5c.465c7",
+        "type": "telegram sender",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "bot": "",
+        "x": 440,
+        "y": 260,
+        "wires": [
+            []
+        ]
     }
 ]
