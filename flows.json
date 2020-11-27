@@ -21,6 +21,28 @@
         "info": ""
     },
     {
+        "id": "87514c9.1c703b",
+        "type": "group",
+        "z": "f6f2187d.f17ca8",
+        "name": "Testes",
+        "style": {
+            "stroke": "#0070c0",
+            "fill": "#ffffff",
+            "label": true,
+            "color": "#000000"
+        },
+        "nodes": [
+            "15153bd4.d41454",
+            "3cfed194.70871e",
+            "44daa3dd.44a61c",
+            "d60764c0.cd50e8"
+        ],
+        "x": 74,
+        "y": 79,
+        "w": 282,
+        "h": 142
+    },
+    {
         "id": "8416bfcc.ec4f",
         "type": "websocket-listener",
         "path": "/ws/example",
@@ -30,6 +52,7 @@
         "id": "15153bd4.d41454",
         "type": "http in",
         "z": "f6f2187d.f17ca8",
+        "g": "87514c9.1c703b",
         "name": "",
         "url": "/hello",
         "method": "get",
@@ -47,17 +70,17 @@
         "id": "3cfed194.70871e",
         "type": "http in",
         "z": "f6f2187d.f17ca8",
+        "g": "87514c9.1c703b",
         "name": "",
         "url": "/test",
         "method": "get",
         "upload": false,
         "swaggerDoc": "",
         "x": 160,
-        "y": 200,
+        "y": 180,
         "wires": [
             [
-                "44daa3dd.44a61c",
-                "4355be5c.465c7"
+                "44daa3dd.44a61c"
             ]
         ]
     },
@@ -65,18 +88,20 @@
         "id": "44daa3dd.44a61c",
         "type": "link out",
         "z": "f6f2187d.f17ca8",
+        "g": "87514c9.1c703b",
         "name": "",
         "links": [
             "a11c591a.6bf7e8"
         ],
         "x": 315,
-        "y": 200,
+        "y": 180,
         "wires": []
     },
     {
         "id": "d60764c0.cd50e8",
         "type": "link out",
         "z": "f6f2187d.f17ca8",
+        "g": "87514c9.1c703b",
         "name": "",
         "links": [
             "3bf2762f.5e64ea"
@@ -191,18 +216,6 @@
             [
                 "a3522fd2.83973"
             ]
-        ]
-    },
-    {
-        "id": "4355be5c.465c7",
-        "type": "telegram sender",
-        "z": "f6f2187d.f17ca8",
-        "name": "",
-        "bot": "",
-        "x": 440,
-        "y": 260,
-        "wires": [
-            []
         ]
     }
 ]

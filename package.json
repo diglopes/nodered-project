@@ -2,9 +2,7 @@
     "name": "first-nodered-project",
     "description": "A Node-RED Project",
     "version": "0.0.1",
-    "dependencies": {
-        "node-red-contrib-telegrambot": "8.8.0"
-    },
+    "dependencies": {},
     "node-red": {
         "settings": {
             "flowFile": "flows.json",
