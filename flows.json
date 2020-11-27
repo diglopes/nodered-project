@@ -1,1 +1,70 @@
-[{"id":"f6f2187d.f17ca8","type":"tab","label":"Flow 1","disabled":false,"info":""},{"id":"8416bfcc.ec4f","type":"websocket-listener","path":"/ws/example","wholemsg":"false"},{"id":"a0aa22e5.63ef4","type":"http request","z":"f6f2187d.f17ca8","name":"","method":"GET","ret":"txt","paytoqs":false,"url":"","persist":false,"authType":"","x":260,"y":180,"wires":[[]]},{"id":"5186c615.8bfdd8","type":"debug","z":"f6f2187d.f17ca8","name":"","active":false,"tosidebar":true,"console":false,"tostatus":false,"complete":"false","statusVal":"","statusType":"auto","x":340,"y":320,"wires":[]}]
+[
+    {
+        "id": "f6f2187d.f17ca8",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "8416bfcc.ec4f",
+        "type": "websocket-listener",
+        "path": "/ws/example",
+        "wholemsg": "false"
+    },
+    {
+        "id": "15153bd4.d41454",
+        "type": "http in",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "url": "/hello",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 150,
+        "y": 120,
+        "wires": [
+            [
+                "395cfc6b.acdd44"
+            ]
+        ]
+    },
+    {
+        "id": "395cfc6b.acdd44",
+        "type": "change",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"ok\": true}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 430,
+        "y": 200,
+        "wires": [
+            [
+                "42f160df.49917"
+            ]
+        ]
+    },
+    {
+        "id": "42f160df.49917",
+        "type": "http response",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 620,
+        "y": 180,
+        "wires": []
+    }
+]
